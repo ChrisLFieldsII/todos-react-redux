@@ -1,24 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import './App.css';
+import { store, persistor } from './redux';
+import {
+  VisTodoListContainer,
+  HeaderContainer,
+  FooterContainer,
+} from './containers';
+
+window.store = store;
+
+function logState() {
+  console.log('======== STORE UPDATED =======');
+  console.log(store.getState());
+}
+
+store.subscribe(logState);
+
+function Loading() {
+  return (
+    <div>
+      <p>Loading...</p>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="appContainer">
+      <Provider store={store}>
+        <PersistGate loading={<Loading />} persistor={persistor}>
+          <HeaderContainer />
+          <VisTodoListContainer />
+          <FooterContainer />
+        </PersistGate>
+      </Provider>
     </div>
   );
 }
