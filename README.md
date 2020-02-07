@@ -1,3 +1,21 @@
+# Todos React-Redux
+
+## Description
+
+Simple Todo app testing out Redux. Definitely sold on the benefits of Redux after completing a project w/o Redux for state management.
+
+A few of the things I was able to do in this small example that I think are helpful are:
+
+- Study UI that needs to be built and come up with the State as well as the Actions that change the State.
+- Writing action creator functions to know what parameters the actions require in order to execute successfully
+- Writing the Reducer and all the functions that each Action can trigger to change the state as `pure functions`
+- Testing the Reducer pure functions to ensure logic is correct.
+- NOTE: Still haven't even started anything React at this point but I'm confident in the app data and logic!
+- Create "dumb" components that just takes in `props` and render UI which makes components easier to test and share
+- Wrap "dumb" components with "smart" data fetching containers to pass props down to "dumb" components
+
+===================================================================================================================
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
